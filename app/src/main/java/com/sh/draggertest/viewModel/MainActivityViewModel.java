@@ -12,6 +12,7 @@ import com.sh.draggertest.constant.Constants;
 import com.sh.draggertest.data.network.MoviesAPI;
 import com.sh.draggertest.data.network.MoviesResponse;
 import com.sh.draggertest.data.room.Movies;
+import com.sh.draggertest.data.room.MoviesDAO;
 
 import java.util.List;
 
@@ -26,10 +27,12 @@ import retrofit2.Response;
 public class MainActivityViewModel extends AndroidViewModel {
     @Inject
     public MoviesAPI moviesAPI;
+    @Inject
+    public MoviesDAO moviesDAO;
     private static final String TAG = "MainActivityViewModel";
     private Disposable disposable = new CompositeDisposable();
 
-    private MutableLiveData<List<Movies>> listMutableLiveData = new MutableLiveData<>();
+    public MutableLiveData<List<Movies>> listMutableLiveData = new MutableLiveData<>();
 
     public MutableLiveData<List<Movies>> getListMutableLiveData()
     {
@@ -39,7 +42,7 @@ public class MainActivityViewModel extends AndroidViewModel {
     public MainActivityViewModel(Application application) {
         super(application);
         DraggerApplication.getApplication().getComponents().inject(this);
-        if(moviesAPI == null)
+        if(moviesDAO == null)
         {
             Log.d(TAG, "MainActivityViewModel: MOVIE API IS NULL");
         }else {

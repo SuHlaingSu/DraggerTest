@@ -1,5 +1,7 @@
 package com.sh.draggertest.di.modules;
 
+import android.app.Application;
+
 import com.sh.draggertest.DraggerApplication;
 
 import javax.inject.Singleton;
@@ -9,15 +11,15 @@ import dagger.Provides;
 
 @Module
 public class ApplicationContextModules {
-    DraggerApplication application;
+    Application application;
 
-    public ApplicationContextModules(DraggerApplication draggerApplication) {
+    public ApplicationContextModules(Application draggerApplication) {
         this.application=draggerApplication;
     }
 
     @Provides
     @Singleton
-    public DraggerApplication provideDraggerApplication()
+    public Application provideDraggerApplication()
     {
         return application;
     }

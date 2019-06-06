@@ -5,6 +5,7 @@ import android.app.Application;
 import com.sh.draggertest.di.components.DaggerMoviesComponents;
 import com.sh.draggertest.di.components.MoviesComponents;
 import com.sh.draggertest.di.modules.ApplicationContextModules;
+import com.sh.draggertest.di.modules.RoomModules;
 
 public class DraggerApplication extends Application {
     MoviesComponents components;
@@ -20,6 +21,7 @@ public class DraggerApplication extends Application {
         return application;
     }
 
+    @SuppressWarnings("deprecated")
     @Override
     public void onCreate() {
         super.onCreate();

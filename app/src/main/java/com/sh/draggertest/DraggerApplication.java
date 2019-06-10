@@ -25,7 +25,7 @@ public class DraggerApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
-        application = application;
+        application = this;
         components = DaggerMoviesComponents.builder().applicationContextModules(new ApplicationContextModules(this)).build();
     }
 }
